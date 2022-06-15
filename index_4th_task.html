@@ -8,24 +8,23 @@
 </head>
 <body>
     <script>
-let age_1 = 17;
 let age_2 = 18;
 let age_3 = 61;
 const age = prompt('Введите свой возраст');
 const checkAge = function(age) {
     if (age == Number(age)){
-        if (age < age_1){
-            alert(`You don’t have access cause your age is ${age}. It’s less then`);
+        if (age < age_2){
+            console.log(`You don’t have access cause your age is ${age}. It’s less then`);
         } else if(age >= age_2 && age < age_3){
-            alert('“Welcome  !”');
+            console.log('“Welcome  !”');
         } else if(age > age_3){
-            alert('Keep calm and look Culture channel.');
+            console.log('Keep calm and look Culture channel.');
         } else{
-            alert('Technical work');
+            console.log('Technical work');
         }
     }
     else{
-        alert('Enter number value')
+        console.log('Enter number value')
     }
 }
 checkAge(age);
