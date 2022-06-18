@@ -65,7 +65,19 @@ function getWordStructure(word){
   getWordStructure('Check-list')
   getWordStructure('Case')
   getWordStructure('case')
+/*another 3** */
+  function countLetters(word) { 
 
+    // find the count of vowels
+    const countVow = word.match(/[aeiou]/gi).length;
+    // find the count of consonants
+    const countCons = word.match(/[bcdfghjklmnpqrstvwxyz]/gi).length;
+    console.log(`Слово ${word} состоит из ${countVow} гласных и ${countCons} согласных букв`);
+}
+
+countLetters('Check-list');
+countLetters('Case');
+countLetters('case');
   /*4**. Написать функцию, которая проверяет, является ли слово палиндромом
 e.g. function isPalindrom(word)
 
