@@ -65,19 +65,24 @@ function getWordStructure(word){
   getWordStructure('Check-list')
   getWordStructure('Case')
   getWordStructure('case')
+  getWordStructure('')
+  getWordStructure('aaaa')
 /*another 3** */
-  function countLetters(word) { 
+function countLetters(word) { 
 
     // find the count of vowels
-    const countVow = word.match(/[aeiou]/gi).length;
+    const countVow = word.match(/[aeiou]/gi) ? word.match(/[aeiou]/gi).length : 0;
     // find the count of consonants
-    const countCons = word.match(/[bcdfghjklmnpqrstvwxyz]/gi).length;
+    const countCons = word.match(/[bcdfghjklmnpqrstvwxyz]/gi) ? word.match(/[bcdfghjklmnpqrstvwxyz]/gi).length : 0;
     console.log(`Слово ${word} состоит из ${countVow} гласных и ${countCons} согласных букв`);
 }
 
 countLetters('Check-list');
 countLetters('Case');
 countLetters('case');
+countLetters('aaa');
+countLetters('');
+
   /*4**. Написать функцию, которая проверяет, является ли слово палиндромом
 e.g. function isPalindrom(word)
 
