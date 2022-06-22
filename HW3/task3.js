@@ -142,3 +142,29 @@ function findEntByName(name_ent){
 
 findEntByName('Отдел аналитики')
 
+/*3. Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
+
+Пример:
+addEnterprise("Название нового предприятия")*/
+
+function addEnterprise(new_name){
+  let counter = 0
+  for(el of enterprises){
+    counter++;
+    for(item of el.departments){
+      counter++;
+    }
+  }
+  let protoObj = enterprises[0];
+  let newObj = Object.create(protoObj);
+  newObj = {
+    id: counter + 1,
+    name: new_name,
+    departments: []
+  }
+  enterprises.push(newObj)
+}
+
+addEnterprise('Предприятие')
+console.log(enterprises)
+
