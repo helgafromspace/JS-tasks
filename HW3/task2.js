@@ -360,15 +360,23 @@ const users =
 ]
 
 //first way
-const userUnique = [...new Map(users.map(item =>
-  [item['name'],item])).values()];
-
-console.log(userUnique)
+function usersUnique(arr){
+    const userUnique = [...new Map(arr.map(item =>
+        [item['name'],item])).values()];
+      
+    console.log(userUnique)
+}
+usersUnique(users);
 
 //second way
 console.log('----------------------------------')
 
-const names = users.map(item => item.name)
-const usersFiltered = users.filter(({name}, index) => !names.includes(name, index + 1))
+function usersFiltered(arr){
+    const names = arr.map(item => item.name)
+    const usersFiltered = arr.filter(({name}, index) => !names.includes(name, index + 1))
+    console.log(usersFiltered)
+}
+usersFiltered(users);
 
-console.log(usersFiltered)
+
+console.log(usersUnique(users) === usersFiltered(users))
