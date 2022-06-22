@@ -167,3 +167,35 @@ addEnterprise('Предприятие 4')
 addEnterprise('Предприятие 5')
 console.log(enterprises)
 
+/*4. Написать функцию, которая будет добавлять отдел в предприятие. В качестве аргумента принимает id предприятия, в которое будет добавлен отдел и название отдела.
+
+Пример:
+addDepartment(1, "Название нового отдела")*/
+
+function addDept(id_ent, dept_name){
+  let counter = 0
+  let availableId = [];
+
+  for(el of enterprises){
+    counter++;
+    availableId.push(el.id)
+    for(item of el.departments){
+      counter++;
+    }
+  }
+  let newDept = {
+    id: counter + 1,
+    name: dept_name,
+    employees_count: 0,
+  }
+
+  let findEl = enterprises.find(item => item.id === id_ent);
+  if(findEl){
+    findEl.departments.push(newDept);
+  } else{
+    console.log(`Вы пытаетесь добавить одтел в отдел. Доступные id предприятий: ${availableId}`)
+  }
+}
+
+addDept(1,'Отдел поедания печенек')
+console.log(enterprises[0])
