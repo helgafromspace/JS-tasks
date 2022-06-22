@@ -155,9 +155,7 @@ function addEnterprise(new_name){
       counter++;
     }
   }
-  let protoObj = enterprises[0];
-  let newObj = Object.create(protoObj);
-  newObj = {
+  let newObj = {
     id: counter + 1,
     name: new_name,
     departments: []
@@ -165,6 +163,7 @@ function addEnterprise(new_name){
   enterprises.push(newObj)
 }
 
-addEnterprise('Предприятие')
+addEnterprise('Предприятие 4')
+addEnterprise('Предприятие 5')
 console.log(enterprises)
 
