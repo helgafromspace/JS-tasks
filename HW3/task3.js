@@ -186,6 +186,8 @@ console.log(enterprises)
 Пример:
 addDepartment(1, "Название нового отдела")*/
 
+
+
 function addDept(id_ent, dept_name){
   let counter = 0
   let availableId = [];
@@ -220,14 +222,9 @@ console.log(enterprises[0])
 deleteEnterprise(1)*/
 
 function deleteEnterprise(id_ent){
-  let counter = 0;
   let availableId = [];
   for(el of enterprises){
-    counter++;
     availableId.push(el.id)
-    for(item of el.departments){
-      counter++;
-    }
   }
   let elIndex = enterprises.findIndex(item => item.id === id_ent);
   if(elIndex){
