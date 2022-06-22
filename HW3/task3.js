@@ -231,6 +231,35 @@ function editEnterprise(id_ent,new_name){
 }
 editEnterprise(1,'Предприятие им.Геральта')
 
+/*6. Написать функцию для редактирования названия отдела. Принимает в качестве аргумента id отдела и новое имя отдела.
+
+Пример:
+editDepartment(7, "Новое название отдела")*/
+
+function editDepartment(id_dep,new_name){
+  let availableId = [];
+
+  for(el of enterprises){
+    for(item of el.departments){
+      availableId.push(item.id);
+  }
+}
+let findEl = enterprises.find(item => item.id === id_dep);
+if(findEl){
+  console.log(`Вы пытаетесь редактировать название не отдела. Доступные id отделов: ${availableId}`)
+}
+if(!findEl){
+  for(el of enterprises){
+    let findEl2 = el.departments.find(item => item.id === id_dep);
+    if(findEl2){
+      findEl2.name = new_name;
+      console.log(findEl2)
+    }
+  }
+}
+}
+editDepartment(2,'Отдел юнлингов')
+
 /*7. Написать функцию для удаления предприятия. В качестве аргумента принимает id предприятия.
 
 Пример:
