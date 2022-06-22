@@ -299,8 +299,7 @@ if(!indexEnt){
   for(el of enterprises){
     let indexDep = el.departments.findIndex(item => item.id === id_dep);
     if(!indexDep && el.departments[indexDep].employees_count === 0){
-      el.departments.splice(indexDep,1)
-      break;
+      el.departments.splice(indexDep,1);
     }
   }
   console.log(enterprises)
