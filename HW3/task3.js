@@ -260,6 +260,35 @@ if(!findEl){
 }
 editDepartment(2,'Отдел юнлингов')
 
+
+/*6. Написать функцию для удаления отдела. В качестве аргумента принимает id отдела. Удалить отдел можно только, если в нем нет сотрудников.*/
+
+function delDepartment(id_dep){
+  let availableId = [];
+
+  for(el of enterprises){
+    for(item of el.departments){
+      availableId.push(item.id);
+  }
+}
+let indexEnt = enterprises.find(item => item.id === id_dep);
+if(indexEnt){
+  console.log(`Вы пытаетесь удалить предприятие. Доступные id отделов: ${availableId}`)
+}
+if(!indexEnt){
+  for(el of enterprises){
+    let indexDep = el.departments.findIndex(item => item.id === id_dep);
+    if(!indexDep && el.departments[indexDep].employees_count === 0){
+      el.departments.splice(indexDep,1)
+      break;
+    }
+  }
+  console.log(enterprises)
+}
+}
+
+delDepartment(10)
+
 /*7. Написать функцию для удаления предприятия. В качестве аргумента принимает id предприятия.
 
 Пример:
