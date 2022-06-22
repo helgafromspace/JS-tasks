@@ -1,5 +1,3 @@
-/*1. Вывести все предприятия и их отделы. Рядом указать количество сотрудников. 
-Для предприятия посчитать сумму всех сотрудников во всех отделах.*/
 const enterprises = [
     {
       id: 1,
@@ -56,6 +54,22 @@ const enterprises = [
     }
   ]
 
+/*1. Вывести все предприятия и их отделы. Рядом указать количество сотрудников. 
+Для предприятия посчитать сумму всех сотрудников во всех отделах.
+
+**Пример:**
+
+Предприятие 1 (45 сотрудников)
+- Отдел тестирования (10 сотрудников)
+- Отдел маркетинга (20 сотрудников)
+- Администрация (15 человек)
+Предприятие 2 (75 сотрудников)
+- Отдел разработки (50 сотрудников)
+- Отдел маркетинга (20 сотрудников)
+- Отдел охраны труда (5 сотрудников)
+Предприятие 3 (нет сотрудников)
+- Отдел аналитики (нет сотрудников)
+*/
 
 //1 way
 for(el of enterprises){
@@ -199,3 +213,29 @@ function addDept(id_ent, dept_name){
 
 addDept(1,'Отдел поедания печенек')
 console.log(enterprises[0])
+
+/*7. Написать функцию для удаления предприятия. В качестве аргумента принимает id предприятия.
+
+Пример:
+deleteEnterprise(1)*/
+
+function deleteEnterprise(id_ent){
+  let counter = 0;
+  let availableId = [];
+  for(el of enterprises){
+    counter++;
+    availableId.push(el.id)
+    for(item of el.departments){
+      counter++;
+    }
+  }
+  let elIndex = enterprises.findIndex(item => item.id === id_ent);
+  if(elIndex){
+    enterprises.splice(elIndex,1);
+    console.log(enterprises)
+  } else{
+    console.log(`Вы пытаетесь удалить не предприятие. Доступные id предприятий: ${availableId}`)
+  }
+}
+
+deleteEnterprise(5)
