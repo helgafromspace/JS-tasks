@@ -368,15 +368,16 @@ function usersUnique(arr){
 }
 usersUnique(users);
 
-//second way
-console.log('----------------------------------')
 
-function usersFiltered(arr){
-    const names = arr.map(item => item.name)
-    const usersFiltered = arr.filter(({name}, index) => !names.includes(name, index + 1))
+console.log('---------------2-------------------')
+
+function usersFiltered(arr2){
+    const names = arr2.map(item => item.name)
+    const usersFiltered = arr2.filter(({name}, index) => !names.includes(name, index + 1))
     console.log(usersFiltered)
 }
 usersFiltered(users);
 
 
-console.log(usersUnique(users) === usersFiltered(users))
+
+
